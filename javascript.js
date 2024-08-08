@@ -1,12 +1,9 @@
 
 function getComputerChoice() {
     let randomChoice = Math.floor(Math.random() * 3) + 1
-    return randomChoice
+    if (randomChoice == 1) return "Rock"
+    if (randomChoice == 2) return "Paper"
+    if (randomChoice == 3) return "Scissors"
 }
 
 console.log(getComputerChoice());
-
-
-// Generates random number between 1 and 3
-// This number will represent rock, paper or scissors
-let randomResult = Math.floor(Math.random() * 3) + 1;
