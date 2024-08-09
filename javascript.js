@@ -31,18 +31,28 @@ if (humanChoice === computerChoice) {
 }
 else if ((humanChoice === "rock" && computerChoice === "scissors") || (humanChoice === "paper" && computerChoice === "rock") || (humanChoice === "scissors" && computerChoice === "paper")) {
     humanScore++
-    return console.log(`You win!`);
+    return console.log(`You win! ${humanChoice + " beats " + computerChoice}`);
 }
 else if ((humanChoice === "rock" && computerChoice === "paper") || (humanChoice === "paper" && computerChoice === "scissors") || (humanChoice === "scissors" && computerChoice === "rock")) {
     computerScore++
-    return console.log(`You lose.`);
+    return console.log(`You lose. ${computerChoice + " beats " + humanChoice}`);
 }
 else return console.log("Something went wrong");
 }
-playRound();
 
-// Show the choices in console
-console.log("You chose " + humanChoice);
-console.log("The computer chose " + computerChoice);
+function playGame() {
+    playRound();
+    playRound();
+    playRound();
+    playRound();
+    playRound();
+    if (humanScore > computerScore) return console.log("You won the game!");
+    else if (computerScore > humanScore) return console.log("You lost the game!");
+    else if (computerScore === humanScore) return console.log("The game was a tie");
+}
+
+playGame();
+
+// Show the scores in console
 console.log("Your score is: " + humanScore);
 console.log("The computer's score is: " + computerScore);
