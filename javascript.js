@@ -1,9 +1,10 @@
 
+let computerChoice;
 function getComputerChoice() {
     let randomChoice = Math.floor(Math.random() * 3) + 1;
-    if (randomChoice == 1) return "rock";
-    if (randomChoice == 2) return "paper";
-    if (randomChoice == 3) return "scissors";
+    if (randomChoice == 1) return computerChoice = "rock";
+    if (randomChoice == 2) return computerChoice = "paper";
+    if (randomChoice == 3) return computerChoice = "scissors";
 }
 
 let humanChoice;
@@ -16,7 +17,11 @@ function getHumanChoice() {
 
 }
 
+let humanScore = 0;
+let computerScore = 0;
+
+getComputerChoice();
 getHumanChoice();
 
 console.log("You chose " + humanChoice);
-console.log("The computer chose " + getComputerChoice());
+console.log("The computer chose " + computerChoice);
