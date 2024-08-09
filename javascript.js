@@ -14,7 +14,7 @@ function getHumanChoice() {
     if (humanChoicePrompt === "1") return humanChoice = "rock";
     if (humanChoicePrompt === "2") return humanChoice = "paper";
     if (humanChoicePrompt === "3") return humanChoice = "scissors";
-    else return console.log("Please type only 1, 2, or 3");
+    else return humanChoice = null;
 
 }
 
@@ -37,7 +37,7 @@ else if ((humanChoice === "rock" && computerChoice === "paper") || (humanChoice 
     computerScore++
     return console.log(`You lose. ${computerChoice + " beats " + humanChoice}`);
 }
-else return console.log("Something went wrong");
+else return console.log("Please type only 1, 2, or 3");
 }
 
 function playGame() {
