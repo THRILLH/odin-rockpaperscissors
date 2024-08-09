@@ -26,11 +26,23 @@ let computerScore = 0;
 function playRound(human, computer) {
 getComputerChoice();
 getHumanChoice();
-    if (humanChoice === "rock" && computerChoice === "rock") return console.log("Draw. You both chose rock.");
-
+if (humanChoice === computerChoice) {
+    return console.log(`Draw. You both chose ${humanChoice}.`);
 }
-playRound(humanChoice, computerChoice);
+else if ((humanChoice === "rock" && computerChoice === "scissors") || (humanChoice === "paper" && computerChoice === "rock") || (humanChoice === "scissors" && computerChoice === "paper")) {
+    humanScore++
+    return console.log(`You win!`);
+}
+else if ((humanChoice === "rock" && computerChoice === "paper") || (humanChoice === "paper" && computerChoice === "scissors") || (humanChoice === "scissors" && computerChoice === "rock")) {
+    computerScore++
+    return console.log(`You lose.`);
+}
+else return console.log("Something went wrong");
+}
+playRound();
 
 // Show the choices in console
 console.log("You chose " + humanChoice);
 console.log("The computer chose " + computerChoice);
+console.log("Your score is: " + humanScore);
+console.log("The computer's score is: " + computerScore);
