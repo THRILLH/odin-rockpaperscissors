@@ -23,9 +23,10 @@ let humanScore = 0;
 let computerScore = 0;
 
 // Play a single round
-function playRound(human, computer) {
+function playRound(humanChoice) {
 getComputerChoice();
-getHumanChoice();
+console.log("Human: " + humanChoice);
+console.log("Computer: " + computerChoice);
 if (humanChoice === computerChoice) {
     return console.log(`Draw. You both chose ${humanChoice}.`);
 }
@@ -51,8 +52,23 @@ function playGame() {
     else if (computerScore === humanScore) return console.log("The game was a tie");
 }
 
-playGame();
+const rockBtn = document.querySelector("#rock-btn");
+rockBtn.addEventListener("click", () => {
+    playRound("rock",);
+})
+
+const paperBtn = document.querySelector("#paper-btn");
+paperBtn.addEventListener("click", () => {
+    playRound("paper");
+})
+
+const scissorsBtn = document.querySelector("#scissors-btn");
+scissorsBtn.addEventListener("click", () => {
+    playRound("scissors");
+})
+
 
 // Show the scores in console
 console.log("Your score is: " + humanScore);
 console.log("The computer's score is: " + computerScore);
+
