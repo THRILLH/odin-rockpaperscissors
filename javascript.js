@@ -41,6 +41,7 @@ else if ((humanChoice === "rock" && computerChoice === "paper") || (humanChoice 
 else return console.log("Please type only 1, 2, or 3");
 }
 
+// Function to play 5 rounds
 function playGame() {
     playRound();
     playRound();
@@ -52,21 +53,32 @@ function playGame() {
     else if (computerScore === humanScore) return console.log("The game was a tie");
 }
 
+
 const rockBtn = document.querySelector("#rock-btn");
 rockBtn.addEventListener("click", () => {
     playRound("rock",);
+    console.log(humanScore);
+    console.log(computerScore);
 })
 
 const paperBtn = document.querySelector("#paper-btn");
 paperBtn.addEventListener("click", () => {
     playRound("paper");
+    console.log(humanScore);
+    console.log(computerScore);
 })
 
 const scissorsBtn = document.querySelector("#scissors-btn");
 scissorsBtn.addEventListener("click", () => {
     playRound("scissors");
+    console.log(humanScore);
+    console.log(computerScore);
 })
 
+//Test
+const resultsDiv = document.querySelector(".results");
+const blah =document.createElement("p");
+resultsDiv.appendChild(blah);
 
 // Show the scores in console
 console.log("Your score is: " + humanScore);
