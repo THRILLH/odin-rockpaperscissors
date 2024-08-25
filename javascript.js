@@ -108,6 +108,5 @@ function resetGame() {
     scoreDiv.removeChild(score1);
     scoreDiv.removeChild(score2);
     ngDiv.removeChild(ngBtn);
-
     endGame();
 }
