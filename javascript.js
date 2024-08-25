@@ -22,21 +22,27 @@ function getHumanChoice() {
 let humanScore = 0;
 let computerScore = 0;
 
+const resultsDiv = document.querySelector(".results");
+const result = document.createElement("p");
+
 // Play a single round
 function playRound(humanChoice) {
 getComputerChoice();
 console.log("Human: " + humanChoice);
 console.log("Computer: " + computerChoice);
 if (humanChoice === computerChoice) {
-    return console.log(`Draw. You both chose ${humanChoice}.`);
+    result.textContent = `It's a draw! You both chose ${humanChoice}.`; 
+    resultsDiv.appendChild(result);
 }
 else if ((humanChoice === "rock" && computerChoice === "scissors") || (humanChoice === "paper" && computerChoice === "rock") || (humanChoice === "scissors" && computerChoice === "paper")) {
     humanScore++
-    return console.log(`You win! ${humanChoice + " beats " + computerChoice}`);
+    result.textContent = `You win! ${humanChoice} beats ${computerChoice}.`; 
+    resultsDiv.appendChild(result);
 }
 else if ((humanChoice === "rock" && computerChoice === "paper") || (humanChoice === "paper" && computerChoice === "scissors") || (humanChoice === "scissors" && computerChoice === "rock")) {
     computerScore++
-    return console.log(`You lose. ${computerChoice + " beats " + humanChoice}`);
+    result.textContent = `You lose! ${computerChoice} beats ${humanChoice}.`; 
+    resultsDiv.appendChild(result);
 }
 else return console.log("Please type only 1, 2, or 3");
 }
@@ -59,6 +65,7 @@ rockBtn.addEventListener("click", () => {
     playRound("rock",);
     console.log(humanScore);
     console.log(computerScore);
+
 })
 
 const paperBtn = document.querySelector("#paper-btn");
@@ -75,10 +82,6 @@ scissorsBtn.addEventListener("click", () => {
     console.log(computerScore);
 })
 
-//Test
-const resultsDiv = document.querySelector(".results");
-const blah =document.createElement("p");
-resultsDiv.appendChild(blah);
 
 // Show the scores in console
 console.log("Your score is: " + humanScore);
