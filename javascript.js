@@ -16,6 +16,9 @@ const scoreDiv = document.querySelector(".score");
 const score1 = document.createElement("p");
 const score2 = document.createElement("p");
 
+const roundDiv = document.querySelector(".round");
+const roundText = document.createElement("p");
+
 function showResults() {
     resultsDiv.appendChild(result);
     score1.textContent = `Your score: ${humanScore}`;
@@ -24,10 +27,12 @@ function showResults() {
     scoreDiv.appendChild(score2);
 }
 
+let roundCounter = 0;
 
 // Play a single round
 function playRound(humanChoice) {
 getComputerChoice();
+roundCounter++
 if (humanChoice === computerChoice) {
     result.textContent = `It's a draw! You both chose ${humanChoice}.`; 
     showResults();
@@ -45,31 +50,39 @@ else if ((humanChoice === "rock" && computerChoice === "paper") || (humanChoice 
 else return console.log("Please type only 1, 2, or 3");
 }
 
+function endGame() {
+    if (roundCounter < 5) {
+    roundText.textContent = `Round: ${roundCounter + 1}`;
+    roundDiv.appendChild(roundText);
+    }
+    else {
+        roundText.textContent = `Game over!`
+        if (humanScore == computerScore) roundText.textContent = "Game over! It's a tie.";
+        if (humanScore > computerScore) roundText.textContent = "Game over! You win.";
+        if (computerScore > humanScore) roundText.textContent = "Game over! You lose";
+    }
+
+}
+
+endGame();
+
 // Make the 3 buttons play one round
 const rockBtn = document.querySelector("#rock-btn");
 rockBtn.addEventListener("click", () => {
     playRound("rock",);
-    console.log(humanScore);
-    console.log(computerScore);
+    endGame();
 
 })
 
 const paperBtn = document.querySelector("#paper-btn");
 paperBtn.addEventListener("click", () => {
     playRound("paper");
-    console.log(humanScore);
-    console.log(computerScore);
+    endGame();
 })
 
 const scissorsBtn = document.querySelector("#scissors-btn");
 scissorsBtn.addEventListener("click", () => {
     playRound("scissors");
-    console.log(humanScore);
-    console.log(computerScore);
+    endGame();
 })
-
-
-// Show the scores in console
-console.log("Your score is: " + humanScore);
-console.log("The computer's score is: " + computerScore);
 
