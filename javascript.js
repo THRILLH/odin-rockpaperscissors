@@ -36,7 +36,6 @@ function showResults() {
 
 let roundCounter = 0;
 
-// Play a single round
 function playRound(humanChoice) {
 getComputerChoice();
 roundCounter++
@@ -54,7 +53,6 @@ else if ((humanChoice === "rock" && computerChoice === "paper") || (humanChoice 
     result.textContent = `You lose! ${computerChoice} beats ${humanChoice}.`; 
     showResults();
 }
-else return console.log("Please type only 1, 2, or 3");
 }
 
 function endGame() {
@@ -63,7 +61,6 @@ function endGame() {
     roundDiv.appendChild(roundText);
     }
     else {
-        roundText.textContent = `Game over!`
         if (humanScore == computerScore) roundText.textContent = "Game over! It's a tie.";
         if (humanScore > computerScore) roundText.textContent = "Game over! You win.";
         if (computerScore > humanScore) roundText.textContent = "Game over! You lose";
@@ -77,7 +74,6 @@ function endGame() {
 
 endGame();
 
-// Make the 3 buttons play one round
 const rockBtn = document.querySelector("#rock-btn");
 rockBtn.addEventListener("click", () => {
     playRound("rock",);
