@@ -7,17 +7,6 @@ function getComputerChoice() {
     if (randomChoice == 3) return computerChoice = "scissors";
 }
 
-// Generate a prompt to get the human's choice
-let humanChoice;
-function getHumanChoice() {
-    let humanChoicePrompt = prompt("Press 1 for rock, 2 for paper, or 3 for scissors");
-    if (humanChoicePrompt === "1") return humanChoice = "rock";
-    if (humanChoicePrompt === "2") return humanChoice = "paper";
-    if (humanChoicePrompt === "3") return humanChoice = "scissors";
-    else return humanChoice = null;
-
-}
-
 // Create the scores
 let humanScore = 0;
 let computerScore = 0;
