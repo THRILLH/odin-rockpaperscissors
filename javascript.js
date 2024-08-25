@@ -19,6 +19,13 @@ const score2 = document.createElement("p");
 const roundDiv = document.querySelector(".round");
 const roundText = document.createElement("p");
 
+const ngDiv = document.querySelector(".new-game");
+const ngBtn = document.createElement("button");
+ngBtn.textContent = "New Game";
+ngBtn.addEventListener("click", () => {
+    resetGame();
+})
+
 function showResults() {
     resultsDiv.appendChild(result);
     score1.textContent = `Your score: ${humanScore}`;
@@ -60,6 +67,10 @@ function endGame() {
         if (humanScore == computerScore) roundText.textContent = "Game over! It's a tie.";
         if (humanScore > computerScore) roundText.textContent = "Game over! You win.";
         if (computerScore > humanScore) roundText.textContent = "Game over! You lose";
+        rockBtn.setAttribute("disabled", "true");
+        paperBtn.setAttribute("disabled", "true");
+        scissorsBtn.setAttribute("disabled", "true");
+        ngDiv.appendChild(ngBtn);
     }
 
 }
@@ -86,3 +97,17 @@ scissorsBtn.addEventListener("click", () => {
     endGame();
 })
 
+function resetGame() {
+    humanScore = 0;
+    computerScore = 0;
+    roundCounter = 0;
+    document.getElementById("rock-btn").disabled = false;
+    document.getElementById("paper-btn").disabled = false;
+    document.getElementById("scissors-btn").disabled = false;
+    resultsDiv.removeChild(result);
+    scoreDiv.removeChild(score1);
+    scoreDiv.removeChild(score2);
+    ngDiv.removeChild(ngBtn);
+
+    endGame();
+}
